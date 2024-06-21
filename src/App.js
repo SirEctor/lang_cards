@@ -8,9 +8,9 @@ import './App.css';
 import { ThemeProvider } from '@emotion/react';
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
-import Login from './Login'
-import Register from './Register'
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import Login from './Login.js'
+import Register from './Register.js'
 
 
 const violetBase = '#E0C2FF';
@@ -28,6 +28,8 @@ const theme = createTheme({
 });
 
 
+
+
 function App() {
   return (
     <div className="App">
@@ -35,22 +37,25 @@ function App() {
         <ThemeProvider theme={theme} position="sticky">
             <AppBar color="violet"  position="sticky">
               <Toolbar>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1}}>Lang-Cards</Typography>
-                  <Button variant="outlined" component={Link} to="/login" color="inherit" endIcon={ <LoginIcon /> } sx={{mr: 2}}>
-                    Login
-                  </Button>
-
+                <Button href={"/"} sx={{ flexGrow: 1}}>Lang-Cards</Button>
+                <Router>
+                  <Routes>
+                      <Route path='/login' element={Login()}/>
+                      <Route path='/register' element={Register()}/>
+                  </Routes>
+                </Router>
                   
-                    <Routes>
-                      <Route path='/login' component={Button}/>
-                    </Routes>
-                  
-                  
+                <Button variant="outlined"  href={"/login"} color="inherit" endIcon={ <LoginIcon /> } sx={{mr: 2}}>
+                  Login
+                </Button>
+                <Button variant="outlined" href={"/register"} to={"/register"} color="inherit" endIcon={ <HowToRegIcon /> } sx={{mr: 2}}>
+                  Register
+                </Button>
               </Toolbar>
             </AppBar>
         </ThemeProvider>
         <Typography variant="h3" component="div" sx={{flexGrow: 1,  margin: 2}}>What Is Lang-Cards?</Typography>
-        <Typography variant="h4" component="div" sx={{flexGrow: 1,  margin: 2}}>Lang-Cards is a flashcard study/quiz system made to help learn languages.</Typography>
+        <Typography variant="h4" component="div" sx={{flexGrow: 1,  margin: 2}}>Lang-Cards is a flashcard study/quiz system made to help learn.</Typography>
         <Box>
           <Typography variant="p" component="div" sx={{flexGrow: 1,  margin: 2}}>Created By E. Teshome (2024)</Typography>
         </Box>
