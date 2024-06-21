@@ -1,13 +1,16 @@
-function Register() {
+import TopBar from "./TopBar.js";
+
+function restOfRegisterPage(){
     return (
-        <div className="App">
-            <header className="App-header">
-                <div>
-                    <p>This is the register div</p>
-                </div>  
-            </header>
-        </div>
+        <div>
+            <p>This is the register div</p>
+        </div>  
     )
+}
+
+
+function Register() {
+    return(<TopBar childToPut={restOfRegisterPage()}/>)
 }
 
 export default Register;
