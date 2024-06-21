@@ -8,9 +8,6 @@ import './App.css';
 import { ThemeProvider } from '@emotion/react';
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
-import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
-import Login from './Login.js'
-import Register from './Register.js'
 
 
 const violetBase = '#E0C2FF';
@@ -38,13 +35,6 @@ function App() {
             <AppBar color="violet"  position="sticky">
               <Toolbar>
                 <Button href={"/"} sx={{ flexGrow: 1}}>Lang-Cards</Button>
-                <Router>
-                  <Routes>
-                      <Route path='/login' element={Login()}/>
-                      <Route path='/register' element={Register()}/>
-                  </Routes>
-                </Router>
-                  
                 <Button variant="outlined"  href={"/login"} color="inherit" endIcon={ <LoginIcon /> } sx={{mr: 2}}>
                   Login
                 </Button>
