@@ -30,7 +30,7 @@ function TopBar({childToPut}) {
                 <ThemeProvider theme={theme}>
                     <AppBar color="violet">
                     <Toolbar>
-                        <Button href={"/"} sx={{ flexGrow: 1}}>Lang-Cards</Button>
+                        <Button color="inherit" href={"/"} sx={{ flexGrow: 1}}>Lang-Cards</Button>
                         <Button variant="outlined"  href={"/login"} color="inherit" endIcon={ <LoginIcon /> } sx={{mr: 2}}>
                         Login
                         </Button>
