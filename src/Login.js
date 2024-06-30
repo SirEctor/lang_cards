@@ -1,7 +1,7 @@
 import { TextField, Typography, FormControl, FormLabel, Button } from "@mui/material";
 import TopBar from "./TopBar.js";
 
-function restOfLoginPage(){
+function RestOfLoginPage(){
     return (
         <div>
             <Typography variant="h5" sx={{flexGrow: 1}}>Login</Typography>
@@ -18,7 +18,7 @@ function restOfLoginPage(){
 
 
 function Login() {
-    return(<TopBar childToPut={restOfLoginPage()}/>)
+    return(<TopBar childToPut={RestOfLoginPage()}/>)
 }
 
 export default Login;

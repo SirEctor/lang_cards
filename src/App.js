@@ -2,6 +2,9 @@ import './App.css';
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import TopBar from './TopBar.js';
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Login from './Login.js'
+import Register from './Register.js'
 
 function restOfHomePage() {
   return(<div position="sticky">
@@ -17,7 +20,14 @@ function restOfHomePage() {
 
 function App() {
   return (
-        <TopBar childToPut={restOfHomePage()}/>
+        <Router>
+          <Routes>
+              <Route path="/" element={<TopBar childToPut={restOfHomePage()}/>} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/register' element={<Register />} />
+          </Routes>     
+        </Router>
+        
   );
 }
 

@@ -1,24 +1,44 @@
 import { TextField, Typography, FormControl, FormLabel, Button } from "@mui/material";
+import { useState } from "react";
 import TopBar from "./TopBar.js";
 
-function restOfRegisterPage(){
+function RestOfRegisterPage (){
+    const [regUsername, setRegUsername] = useState('');
+    const [regPassword, setRegPassword] = useState('');
+
+    function handleUsername(event){
+        setRegUsername(event.target.value);
+    }
+
+    function handlePassword(event){
+        setRegPassword(event.target.value);
+    }
+
+    function handleRegister(event){
+        event.preventDefault();
+        console.log(regUsername);
+        console.log(regPassword);
+    }
+    // onChange={e => setRegUsername(e)}
+    //onSubmit={handleRegister}
+
     return (
         <div>
             <Typography variant="h5" sx={{flexGrow: 1}}>Registration</Typography>
-            <FormControl id="register-form" sx={{mt:2, flexGrow: 1}}>
-                <FormLabel>Username</FormLabel>
-                <TextField id="register-username" variant="outlined" color="secondary" label={"Enter Username"}/>
-                <FormLabel>Password</FormLabel>
-                <TextField id="register-password" variant="outlined" color="secondary" label={"Enter Password"}/>
-                <Button variant="outlined" color="inherit" sx={{mt: 2}}>Submit</Button>
-            </FormControl>    
+            <form onSubmit={handleRegister}>
+                <FormControl id="register-form" sx={{mt:2, flexGrow: 1}} >
+                    <TextField id="register-username" sx={{mt:2}} variant="outlined" color="secondary" label={"Enter Username"} required onChange={handleUsername} />
+                    <TextField id="register-password" sx={{mt:2}} variant="outlined" color="secondary" label={"Enter Password"} required onChange={handlePassword} />
+                    <Button variant="outlined" color="inherit" sx={{mt: 2}} type="submit">Submit</Button>
+                </FormControl>    
+            </form>
         </div>  
     )
 }
 
 
 function Register() {
-    return(<TopBar childToPut={restOfRegisterPage()}/>)
+    return(<TopBar childToPut={RestOfRegisterPage()}/>)
 }
 
 export default Register;
