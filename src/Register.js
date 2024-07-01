@@ -19,8 +19,6 @@ function RestOfRegisterPage (){
         console.log(regUsername);
         console.log(regPassword);
     }
-    // onChange={e => setRegUsername(e)}
-    //onSubmit={handleRegister}
 
     return (
         <div>
@@ -28,7 +26,7 @@ function RestOfRegisterPage (){
             <form onSubmit={handleRegister}>
                 <FormControl id="register-form" sx={{mt:2, flexGrow: 1}} >
                     <TextField id="register-username" sx={{mt:2}} variant="outlined" color="secondary" label={"Enter Username"} required onChange={handleUsername} />
-                    <TextField id="register-password" sx={{mt:2}} variant="outlined" color="secondary" label={"Enter Password"} required onChange={handlePassword} />
+                    <TextField id="register-password" sx={{mt:2}} variant="outlined" color="secondary" label={"Enter Password"} required onChange={handlePassword} type="password" />
                     <Button variant="outlined" color="inherit" sx={{mt: 2}} type="submit">Submit</Button>
                 </FormControl>    
             </form>

@@ -9,7 +9,7 @@ function RestOfLoginPage(){
                 <FormLabel>Username</FormLabel>
                 <TextField id="login-username" variant="outlined" color="secondary" label={"Enter Username"}/>
                 <FormLabel>Password</FormLabel>
-                <TextField id="login-password" variant="outlined" color="secondary" label={"Enter Password"}/>
+                <TextField id="login-password" variant="outlined" color="secondary" label={"Enter Password"} type="password" />
                 <Button variant="outlined" color="inherit" sx={{mt: 2}}>Submit</Button>
             </FormControl>    
         </div>
