@@ -1,12 +1,9 @@
-import {createTheme, alpha, getContrastRatio} from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import LoginIcon from '@mui/icons-material/Login';
-import HowToRegIcon from '@mui/icons-material/HowToReg';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import './App.css';
 import { ThemeProvider } from '@emotion/react';
-
+import {createTheme, alpha, getContrastRatio} from '@mui/material/styles';
 
 
 const violetBase = '#E0C2FF';
@@ -23,7 +20,7 @@ const theme = createTheme({
   },
 });
 
-function TopBar({childToPut}) {
+function TopBar({childToPut, rightSideButtons}) {
     return(
         <div className="App">
             <header className="App-header" position="sticky">
@@ -31,12 +28,7 @@ function TopBar({childToPut}) {
                     <AppBar color="violet">
                     <Toolbar>
                         <Button color="inherit" href={"/"} sx={{ flexGrow: 1}}>Lang-Cards</Button>
-                        <Button variant="outlined"  href={"/login"} color="inherit" endIcon={ <LoginIcon /> } sx={{mr: 2}}>
-                        Login
-                        </Button>
-                        <Button variant="outlined" href={"/register"} to={"/register"} color="inherit" endIcon={ <HowToRegIcon /> } sx={{mr: 2}}>
-                        Register
-                        </Button>
+                        {rightSideButtons}
                     </Toolbar>
                     </AppBar>
                 </ThemeProvider>
