@@ -1,8 +1,13 @@
 import TopBar from "./TopBar.js";
-import { Avatar } from '@mui/material';
+import { Avatar, Button, Link } from '@mui/material';
 
 function avatar(){
     return( <>
+        <Button> 
+            <Link href="/" underline="none" color={'secondary'}>
+                {'Logout'}
+            </Link>
+        </Button>
         <Avatar sx={{ bgcolor: "purple" }}>T</Avatar>
     </>)
 }
