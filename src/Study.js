@@ -2,8 +2,8 @@ import TopBarWithAvatar from './TopBarWithAvatar.js';
 import { FormControl, Select, Typography, Button } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";
-import Papa from 'papaparse';
 import { useEffect, useState } from 'react';
+import { getDataFromCSV } from './Utilities.js';
 
 function RestOfStudyPage() {
     const navigate = useNavigate();
@@ -28,22 +28,8 @@ function RestOfStudyPage() {
     }
 
     useEffect(() => {
-      async function getDataFromCSV(filePath, variableFunc){
-        const resp = await fetch(filePath);
-        const reader = resp.body.getReader();
-        const result = await reader.read();
-        const d = new TextDecoder('utf-8');
-        const csv = d.decode(result.value);
-  
-        const results = Papa.parse(csv, {header: true});
-        const rows = results.data;
-        
-        variableFunc(rows);
-      }
-      
-      getDataFromCSV('./Language.csv', setLangs);
-      getDataFromCSV('./Mode.csv', setModes);
-
+      getDataFromCSV('/Language.csv', setLangs);
+      getDataFromCSV('/Mode.csv', setModes);
     }, [])
 
 

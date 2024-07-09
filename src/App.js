@@ -7,6 +7,7 @@ import Login from './Login.js'
 import Register from './Register.js'
 import Home from './Home.js';
 import Study from './Study.js';
+import EngToLang from './EngToLang.js';
 
 
 function restOfAppPage() {
@@ -30,6 +31,7 @@ function App() {
               <Route path='/register' element={<Register />} />
               <Route path='/home' element={<Home />} />
               <Route path='/study' element={<Study />} />
+              <Route path='/study/:mode/:lang' element={<EngToLang />} />
           </Routes>     
         </Router>
         
