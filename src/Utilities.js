@@ -1,6 +1,6 @@
 import Papa from 'papaparse';
 
-export const getDataFromCSV = async (filePath, variableFunc) => {
+export async function getDataFromCSV(filePath, variableFunc){
     const resp = await fetch(filePath);
     const reader = resp.body.getReader();
     const result = await reader.read();
