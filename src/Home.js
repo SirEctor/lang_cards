@@ -1,7 +1,7 @@
-import TopBarWithAvatar from './TopBarWithAvatar.js';
 import Button from '@mui/material/Button';
 import BookIcon from '@mui/icons-material/Book';
 import QuizIcon from '@mui/icons-material/Quiz';
+import TopBarWithReg from './TopBarWithReg.js';
 
 function restOfHomePage() {
     return(<div position="sticky">
@@ -11,7 +11,7 @@ function restOfHomePage() {
 }
   
 function Home() {
-    return(<TopBarWithAvatar childToPut={restOfHomePage()} />)
+    return(<TopBarWithReg childToPut={restOfHomePage()} />)
 }
 
 export default Home;

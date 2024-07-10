@@ -3,11 +3,10 @@ import TopBarWithAvatar from './TopBarWithAvatar.js';
 import { Card} from "@mui/material";
 import { useEffect, useState } from "react";
 import { getDataFromCSV } from "./Utilities.js";
-import ChangeableCard from "./ChangeableCard.js";
+import ViewableCard from "./ViewableCard.js";
 
-
-function RestOfEngToLang(){
-    let { mode, lang } = useParams();
+function RestOfStudyCard(){
+    let {lang } = useParams();
 
     const [langArray, setLangArray] = useState([]);
 
@@ -25,16 +24,17 @@ function RestOfEngToLang(){
     return(<Card sx={{ minWidth: 275 }} color="">
             {langArray ? langArray.map(lang => (
                 lang['code'].toString() === currentCard.toString() ? 
-                (<ChangeableCard langA={lang} visibility={visibleClass} setCurrentCard={setCurrentCard} currentCard={currentCard} />) 
+                (<ViewableCard langA={lang} visibility={visibleClass} setCurrentCard={setCurrentCard} currentCard={currentCard} />) 
                     :
-                    (<ChangeableCard langA={lang} visibility={hiddenClass} />) 
+                    (<ViewableCard langA={lang} visibility={hiddenClass} />) 
             )) : "LOADING"}
             
         </Card>)
 }
 
-function EngToLang() {
-    return(<TopBarWithAvatar childToPut={RestOfEngToLang()} />)
+function StudyCard(){
+    return(<TopBarWithAvatar childToPut={RestOfStudyCard()} />)
 }
 
-export default EngToLang;
+
+export default StudyCard;

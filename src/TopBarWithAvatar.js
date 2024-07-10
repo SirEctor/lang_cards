@@ -1,15 +1,13 @@
 import TopBar from "./TopBar.js";
-import { Avatar, Button, Link } from '@mui/material';
+import { Button } from '@mui/material';
+import BookIcon from '@mui/icons-material/Book';
+import QuizIcon from '@mui/icons-material/Quiz';
 
 function avatar(){
-    return( <>
-        <Button> 
-            <Link href="/" underline="none" color={'secondary'}>
-                {'Logout'}
-            </Link>
-        </Button>
-        <Avatar sx={{ bgcolor: "purple" }}>T</Avatar>
-    </>)
+    return( <div position="sticky">
+        <Button color="inherit" variant="outlined" href={"/study"} sx={{ mr: 2, flexGrow: 1 }} style={{ textTransform: "none" }} endIcon={<BookIcon />}>STUDY</Button>
+        <Button color="inherit" variant="outlined" href={"/quiz"} sx={{ ml:2, flexGrow: 1 }} style={{ textTransform: "none" }} endIcon={<QuizIcon />}>QUIZ</Button>
+    </div>)
 }
 
 function TopBarWithAvatar({childToPut}) {
