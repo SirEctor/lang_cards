@@ -25,9 +25,9 @@ function RestOfEngToLang(){
     return(<Card sx={{ minWidth: 275 }} color="">
             {langArray ? langArray.map(lang => (
                 lang['code'].toString() === currentCard.toString() ? 
-                (<ChangeableCard langA={lang} visibility={visibleClass} setCurrentCard={setCurrentCard} currentCard={currentCard} />) 
+                (<ChangeableCard langA={lang} visibility={visibleClass} setCurrentCard={setCurrentCard} currentCard={currentCard} mode={mode} />) 
                     :
-                    (<ChangeableCard langA={lang} visibility={hiddenClass} />) 
+                    (<ChangeableCard langA={lang} visibility={hiddenClass} mode={mode} />) 
             )) : "LOADING"}
             
         </Card>)

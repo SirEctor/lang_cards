@@ -15,3 +15,16 @@ export async function getDataFromCSV(filePath, variableFunc){
        
         
  
+export function nameOfLang(langCodes, lang){
+    let ret = langCodes[0]['code'];
+    console.log(langCodes)
+    console.log(lang);
+    for(let i = 0; i < langCodes.length; i++){
+        console.log(langCodes[i]);
+        if(langCodes[i]['code'].toString() == lang.toString()){
+            ret = langCodes[i]['code'];
+        }
+    }
+
+    return(ret);
+}
