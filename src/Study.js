@@ -8,7 +8,7 @@ import TopBarWithReg from './TopBarWithReg.js';
 function RestOfStudyPage(){
     const navigate = useNavigate();
     const [langs, setLangs] = useState([]);
-    const [modes, setModes] = useState([]);
+    // const [modes, setModes] = useState([]);
     
     const [chosenLang, setChosenLang] = useState('');
     
@@ -23,8 +23,9 @@ function RestOfStudyPage(){
 
     useEffect(() => {
       getDataFromCSV('/Language.csv', setLangs);
-      getDataFromCSV('/Mode.csv', setModes);
+    //   getDataFromCSV('/Mode.csv', setModes);
     }, [])
+    
 
 
     return(<div position="sticky">
