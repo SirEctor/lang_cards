@@ -8,7 +8,7 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
 
 function RestOfQuizCard(){
-    let { mode, lang } = useParams();
+    let { mode, lang, letterFamily } = useParams();
 
     const [langArray, setLangArray] = useState([]);
     const [randomizedArray, setRandomizedArray] = useState([])
@@ -18,7 +18,7 @@ function RestOfQuizCard(){
     
     useEffect(() => {
         let specificFilePath = "/study_data/" + lang.toString() + ".csv";
-        getDataFromCSV(specificFilePath, setLangArray);
+        getDataFromCSV(specificFilePath, setLangArray, letterFamily);
     }, [lang])
 
     useEffect(() => {
@@ -42,7 +42,7 @@ function RestOfQuizCard(){
                     )) : "LOADING"}
                 </Card>
                 {finished && <Card sx={{ minWidth: 275 }}>
-                    <Button color="secondary" variant="outlined" href={"/quiz/"+ mode.toString() + "/"+ lang.toString()} sx={{ mt: 20, mb: 20 }} style={{ textTransform: "none" }} endIcon={<RestartAltIcon />}>RESTART</Button>
+                    <Button color="secondary" variant="outlined" href={"/quiz/"+ mode.toString() + "/"+ lang.toString() + "/" + letterFamily.toString()} sx={{ mt: 20, mb: 20 }} style={{ textTransform: "none" }} endIcon={<RestartAltIcon />}>RESTART</Button>
                 </Card> 
                 }
             </>)

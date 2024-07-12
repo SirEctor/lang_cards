@@ -17,8 +17,6 @@ function RestOfRegisterPage (){
 
     function handleRegister(event){
         event.preventDefault();
-        console.log(regUsername);
-        console.log(regPassword);
     }
 
     return (

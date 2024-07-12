@@ -14,9 +14,11 @@ function ChangeableCard({langA, visibility, setCurrentCard, currentCard, mode}){
     function checkMatch(event){
         event.preventDefault();
         if(mode == 0){
+            //eng to other lang
             setCorrectMatch(sound === langA['other-lang']);
         }
         else{
+            //other lang to eng
             setCorrectMatch(sound === langA['english']);
         }
     }

@@ -7,7 +7,7 @@ import ViewableCard from "./ViewableCard.js";
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
 function RestOfStudyCard(){
-    let { lang } = useParams();
+    let { lang, letterFamily } = useParams();
 
     const [langArray, setLangArray] = useState([]);
     const [randomizedArray, setRandomizedArray] = useState([])
@@ -17,8 +17,8 @@ function RestOfStudyCard(){
     
     useEffect(() => {
         let specificFilePath = "/study_data/" + lang.toString() + ".csv";
-        getDataFromCSV(specificFilePath, setLangArray);
-    }, [lang]);
+        getDataFromCSV(specificFilePath, setLangArray, letterFamily);
+    }, [lang, letterFamily]);
 
     useEffect(() => {
         setRandomizedArray([].concat(langArray.sort(() => 0.5 - Math.random())))     
@@ -42,8 +42,9 @@ function RestOfStudyCard(){
             )) : "LOADING"}
 
     </Card>
+            
     {finished && <Card sx={{ minWidth: 275 }}>
-        <Button color='secondary' variant="outlined" href={"/study/"+ lang.toString()} sx={{ mt: 20, mb: 20 }} style={{ textTransform: "none" }} endIcon={<RestartAltIcon />}>RESTART</Button>
+        <Button color='secondary' variant="outlined" href={"/study/"+ lang.toString() + "/" + letterFamily.toString()} sx={{ mt: 20, mb: 20 }} style={{ textTransform: "none" }} endIcon={<RestartAltIcon />}>RESTART</Button>
         </Card> 
     }
     </>

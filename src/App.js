@@ -38,9 +38,9 @@ function App() {
               <Route path='/register' element={<Register />} />
               <Route path='/home' element={<Home />} />
               <Route path='/quiz' element={<Quiz />} />
-              <Route path='/quiz/:mode/:lang' element={<QuizCard />} />
+              <Route path='/quiz/:mode/:lang/:letterFamily' element={<QuizCard />} />
               <Route path='/study' element={<Study />} />
-              <Route path='/study/:lang' element={<StudyCard />} />
+              <Route path='/study/:lang/:letterFamily' element={<StudyCard />} />
           </Routes>     
         </Router>
         

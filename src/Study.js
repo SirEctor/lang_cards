@@ -2,30 +2,42 @@ import { FormControl, Select, Typography, Button } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
-import { getDataFromCSV } from './Utilities.js';
+import { getDataFromCSV, filterTheArray } from './Utilities.js';
 import TopBarWithReg from './TopBarWithReg.js';
 
 function RestOfStudyPage(){
     const navigate = useNavigate();
     const [langs, setLangs] = useState([]);
-    // const [modes, setModes] = useState([]);
+    const [letterFamilies, setLetterFamilies] = useState([]);
+    const [filteredLetterFamilies, setFilteredLetterFamilies] = useState([]);
     
     const [chosenLang, setChosenLang] = useState('');
+    const [chosenLetterFamily, setChosenLetterFamily] = useState('');
     
     function handleLang(event){
       setChosenLang(event.target.value);
     }
 
+    function handleLetterFamily(event){
+        setChosenLetterFamily(event.target.value);
+    }
+
     function handleSubmit(event) {
       event.preventDefault();
-      navigate("/study/"+ chosenLang.toString());  
+      navigate("/study/"+ chosenLang.toString() + "/" + chosenLetterFamily.toString());  
     }
 
     useEffect(() => {
       getDataFromCSV('/Language.csv', setLangs);
-    //   getDataFromCSV('/Mode.csv', setModes);
     }, [])
+
+    useEffect(() => {
+        getDataFromCSV("/study_data/" + chosenLang.toString() + '.csv', setLetterFamilies)
+    }, [chosenLang])
     
+    useEffect(() => {
+        setFilteredLetterFamilies(filterTheArray(letterFamilies, "lang-family"))
+    }, [letterFamilies])
 
 
     return(<div position="sticky">
@@ -37,6 +49,17 @@ function RestOfStudyPage(){
                   {langs ? (langs.map(lang => (
                     <MenuItem value={lang.code} key={lang.code}>
                       {lang.language}
+                    </MenuItem>))) : "LOADING!"}
+                  </Select>
+
+                  <Typography variant="h5" sx={{flexGrow: 1}}>Letter Family</Typography>
+                  <Select variant="filled" color="secondary" id="letter-family-select" label="Letter Family" autoWidth onChange={handleLetterFamily}>
+                  <MenuItem value={'all'} key={'study-all'}>
+                      {'All'}
+                    </MenuItem>
+                  {filteredLetterFamilies ? (filteredLetterFamilies.map(lang => (
+                    <MenuItem value={lang['lang-family']} key={lang.code}>
+                      {lang['lang-family']}
                     </MenuItem>))) : "LOADING!"}
                   </Select>
                   
