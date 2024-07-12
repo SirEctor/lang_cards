@@ -13,13 +13,14 @@ function RestOfQuizCard(){
     const [langArray, setLangArray] = useState([]);
     const [randomizedArray, setRandomizedArray] = useState([])
 
+    const[numCorrect, setNumCorrect] = useState(0);
     const[currentCard, setCurrentCard] = useState(0);
     const[finished, setFinished] = useState(false);
     
     useEffect(() => {
         let specificFilePath = "/study_data/" + lang.toString() + ".csv";
         getDataFromCSV(specificFilePath, setLangArray, letterFamily);
-    }, [lang])
+    }, [lang, letterFamily])
 
     useEffect(() => {
         setRandomizedArray([].concat(langArray.sort(() => 0.5 - Math.random())))     
@@ -36,15 +37,16 @@ function RestOfQuizCard(){
                 <Card sx={{ minWidth: 275 }} color="">
                     {randomizedArray ? randomizedArray.map((lang, index) => (
                         index.toString() === currentCard.toString() ? 
-                        (<ChangeableCard langA={lang} visibility={visibleClass} setCurrentCard={setCurrentCard} currentCard={currentCard} mode={mode} />) 
+                        (<ChangeableCard langA={lang} visibility={visibleClass} setCurrentCard={setCurrentCard} currentCard={currentCard} mode={mode} numCorrect={numCorrect} randomizedArray={randomizedArray} setNumCorrect={setNumCorrect} />) 
                             :
-                            (<ChangeableCard langA={lang} visibility={hiddenClass} setCurrentCard={setCurrentCard} currentCard={currentCard} mode={mode} />) 
+                            (<ChangeableCard langA={lang} visibility={hiddenClass} setCurrentCard={setCurrentCard} currentCard={currentCard} mode={mode} numCorrect={numCorrect} randomizedArray={randomizedArray} setNumCorrect={setNumCorrect} />) 
                     )) : "LOADING"}
                 </Card>
                 {finished && <Card sx={{ minWidth: 275 }}>
                     <Button color="secondary" variant="outlined" href={"/quiz/"+ mode.toString() + "/"+ lang.toString() + "/" + letterFamily.toString()} sx={{ mt: 20, mb: 20 }} style={{ textTransform: "none" }} endIcon={<RestartAltIcon />}>RESTART</Button>
                 </Card> 
                 }
+                
             </>)
 }
 
