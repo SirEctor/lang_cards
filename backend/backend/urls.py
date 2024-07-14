@@ -17,10 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from tigrinya import views
+from tigrinya import views as tigrinya_views
+from language import views as language_views
+from mode import views as mode_views
 
 router = routers.DefaultRouter()
-router.register(r'tigrinya', views.tigrinyaView, 'tigrinya')
+router.register(r'tigrinya', tigrinya_views.tigrinyaView, 'tigrinya')
+router.register(r'language',language_views.LanguageView, 'language')
+router.register(r'mode', mode_views.ModeView, 'mode')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

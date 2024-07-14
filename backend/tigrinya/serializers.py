@@ -5,4 +5,5 @@ class tigrinyaSerializer(serializers.ModelSerializer):
     class Meta:
         model = tigrinya
         fields = ('id', 'otherLang', 'english','langFamily','code')
+        ordering = "?"
 
