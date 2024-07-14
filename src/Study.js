@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { getDataFromCSV, filterTheArray } from './Utilities.js';
 import TopBarWithReg from './TopBarWithReg.js';
+import axios from "axios";
+
 
 function RestOfStudyPage(){
     const navigate = useNavigate();
@@ -32,8 +34,15 @@ function RestOfStudyPage(){
     }, [])
 
     useEffect(() => {
-        getDataFromCSV("/study_data/" + chosenLang.toString() + '.csv', setLetterFamilies)
+      getDataFromCSV("/study_data/" + chosenLang.toString() + '.csv', setLetterFamilies)
     }, [chosenLang])
+
+    useEffect(() => {
+      axios.get("http://localhost:8000/api/"+chosenLang.toString()+"/")
+      .then((res) => {console.log(res['data'])})
+      .catch((err) => {console.log(err)})
+    }, [chosenLang])
+
     
     useEffect(() => {
         setFilteredLetterFamilies(filterTheArray(letterFamilies, "lang-family"))
@@ -47,7 +56,7 @@ function RestOfStudyPage(){
                   <Typography variant="h5" sx={{flexGrow: 1}}>Language</Typography>
                   <Select variant="filled" color="secondary" id="lang-select" label="Language" autoWidth onChange={handleLang}>
                   {langs ? (langs.map(lang => (
-                    <MenuItem value={lang.code} key={lang.code}>
+                    <MenuItem value={lang.language} key={lang.code}>
                       {lang.language}
                     </MenuItem>))) : "LOADING!"}
                   </Select>

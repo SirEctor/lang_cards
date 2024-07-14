@@ -15,6 +15,8 @@ function RestOfStudyCard(){
     const[currentCard, setCurrentCard] = useState(0);
     const[finished, setFinished] = useState(false);
     
+
+    
     useEffect(() => {
         let specificFilePath = "/study_data/" + lang.toString() + ".csv";
         getDataFromCSV(specificFilePath, setLangArray, letterFamily);

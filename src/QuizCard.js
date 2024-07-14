@@ -6,9 +6,9 @@ import { getDataFromCSV } from "./Utilities.js";
 import ChangeableCard from "./ChangeableCard.js";
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
-
 function RestOfQuizCard(){
     let { mode, lang, letterFamily } = useParams();
+    console.log(mode);
 
     const [langArray, setLangArray] = useState([]);
     const [randomizedArray, setRandomizedArray] = useState([])

@@ -62,7 +62,7 @@ function RestOfQuizPage() {
                   <Typography variant="h5" sx={{flexGrow: 1}}>Language</Typography>
                   <Select variant="filled" color="secondary" id="lang-select" label="Language" autoWidth onChange={handleLang}>
                   {langs ? (langs.map(lang => (
-                    <MenuItem value={lang.code} key={lang.code}>
+                    <MenuItem value={lang.language} key={lang.code}>
                       {lang.language}
                     </MenuItem>))) : "LOADING!"}
                   </Select>

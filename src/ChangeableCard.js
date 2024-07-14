@@ -19,7 +19,7 @@ function ChangeableCard({langA, visibility, setCurrentCard, currentCard, mode, n
 
     function checkMatch(event){
         event.preventDefault();
-        if(mode === 0){
+        if(mode.toString() === '0'){
             //eng to other lang
             setCorrectMatch(sound === langA['other-lang']);
             if(sound === langA['other-lang']){
@@ -39,7 +39,8 @@ function ChangeableCard({langA, visibility, setCurrentCard, currentCard, mode, n
         setCurrentCard(currentCard => currentCard + 1)
     }
 
-    if(mode === 0){
+    if(mode.toString() === "0"){
+        //eng to other lang
         return(
                 <>
                     <CardContent key={langA['code']} className={visibility ? visibility.toString() : "inherit"}>
@@ -68,6 +69,7 @@ function ChangeableCard({langA, visibility, setCurrentCard, currentCard, mode, n
                 
             )
     }else{
+        //other lang to eng
         return(
             <>
                 <CardActionArea key={langA['code']} className={visibility ? visibility.toString() : "inherit"}>
