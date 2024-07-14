@@ -20,11 +20,13 @@ from rest_framework import routers
 from tigrinya import views as tigrinya_views
 from language import views as language_views
 from mode import views as mode_views
+from japanese_hiragana import views as japanese_hiragana_views
 
 router = routers.DefaultRouter()
 router.register(r'tigrinya', tigrinya_views.tigrinyaView, 'tigrinya')
 router.register(r'language',language_views.LanguageView, 'language')
 router.register(r'mode', mode_views.ModeView, 'mode')
+router.register(r'japanese_hiragana', japanese_hiragana_views.Japanese_HiraganaView, 'japanese_hiragana')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

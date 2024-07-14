@@ -6,4 +6,4 @@ from .models import tigrinya
 # Create your views here.
 class tigrinyaView(viewsets.ModelViewSet):
     serializer_class = tigrinyaSerializer
-    queryset = tigrinya.objects.all()
+    queryset = tigrinya.objects.all().order_by('?')

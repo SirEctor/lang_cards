@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'tigrinya',
     'language',
-    'mode'
+    'mode',
+    'japanese_hiragana'
 ]
 
 MIDDLEWARE = [

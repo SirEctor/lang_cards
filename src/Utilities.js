@@ -35,12 +35,15 @@ export function filterTheArray(letterFamilies, keyInQuestion){
 
     for(let i = 0; i < letterFamilies.length; i++){
         let letterFam = letterFamilies[i];
-        // console.log(letterFam);
+        
         if (!(keysSeen.includes(letterFam[keyInQuestion]))){
             keysSeen.push(letterFam[keyInQuestion])
             storage.push(letterFam)
         }
     }
+
+    console.log(keysSeen);
+    console.log(storage);
 
     return(storage);
 }
