@@ -33,8 +33,9 @@ function RestOfStudyPage(){
     //   getDataFromCSV('/Language.csv', setLangs);
     // }, [])
 
+    //use 54.226.13.175:8000 instead of lhost:8000
     useEffect(() => {
-      axios.get("http://localhost:8000/api/language/")
+      axios.get("http://54.226.13.175:8000/api/language/")
       .then((res) => {
         console.log(res['data'])
         setLangs(res['data'])
@@ -50,7 +51,7 @@ function RestOfStudyPage(){
     // use django api instead of above 
     useEffect(() => {
       if(chosenLang !== ''){
-        axios.get("http://localhost:8000/api/"+chosenLang.toString()+"/")
+        axios.get("http://54.226.13.175:8000/api/"+chosenLang.toString()+"/")
       .then((res) => {
         setLetterFamilies(res['data'])
       })
