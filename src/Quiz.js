@@ -41,16 +41,16 @@ function RestOfQuizPage() {
     // }, [])
 
     //use django api instead of above
-    //use 54.226.13.175:8000 (ec2 django) instead of lhost:8000
+    //use  :8000 (ec2 django) instead of lhost:8000
     useEffect(() => {
-      axios.get("http://54.226.13.175:8000/api/language/")
+      axios.get("http://107.20.1.29:8000/api/language/")
       .then((res) => {
         console.log(res['data'])
         setLangs(res['data'])
       })
       .catch((err) => {console.log(err)});
 
-      axios.get("http://54.226.13.175:8000/api/mode/")
+      axios.get("http://107.20.1.29:8000/api/mode/")
       .then((res) => {
         console.log(res['data'])
         setModes(res['data'])
@@ -66,7 +66,7 @@ function RestOfQuizPage() {
      // replace above useeffect with this one
      useEffect(() => {
       if(chosenLang !== ''){
-        axios.get("http://54.226.13.175:8000/api/"+chosenLang.toString()+"/")
+        axios.get("http://107.20.1.29:8000/api/"+chosenLang.toString()+"/")
       .then((res) => {
         setLetterFamilies(res['data'])
       })
