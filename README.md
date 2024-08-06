@@ -8,10 +8,11 @@ Lang-Cards is a flashcard study/quiz system I made to help learn the letters of 
 -       corsheaders
 -       restframework
 -   AWS
--       S3 (to host the frontend @ http://lang-card-bucket.s3-website-us-east-1.amazonaws.com/ )
--       EC2 (to host the Django apis @ http://107.20.1.29:8000/api/)
+-       S3 (to host the frontend @ http://lang-card-bucket.s3-website-us-east-1.amazonaws.com/ ) (Deprecated)
+-       EC2 (to host the Django apis @ http://107.20.1.29:8000/api/) (Deprecated)
 -           which is in its own custom VPC
--       Cloudfront (for CDN)
+-       Cloudfront (for CDN) (Deprecated)
+-     Moved to Github pages (csv for backend, since pages require static, single page applications)
 
 
 # Next steps
