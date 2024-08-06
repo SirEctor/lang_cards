@@ -2,9 +2,8 @@ import { FormControl, Select, Typography, Button } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
-import { filterTheArray } from './Utilities.js';
 import TopBarWithReg from './TopBarWithReg.js';
-import axios from "axios";
+import { getDataFromCSV, filterTheArray } from './Utilities.js';
 
 
 function RestOfStudyPage(){
@@ -29,39 +28,40 @@ function RestOfStudyPage(){
       navigate("/study/"+ chosenLang.toString() + "/" + chosenLetterFamily.toString());  
     }
 
-    // useEffect(() => {
-    //   getDataFromCSV('/Language.csv', setLangs);
-    // }, [])
-
-    //use :8000 instead of lhost:8000
     useEffect(() => {
-      axios.get("http://107.20.1.29:8000/api/language/")
-      .then((res) => {
-        console.log(res['data'])
-        setLangs(res['data'])
-      })
-      .catch((err) => {console.log(err)})
+      getDataFromCSV('/Language.csv', setLangs);
     }, [])
 
-
+    // //use :8000 instead of lhost:8000
     // useEffect(() => {
-    //   getDataFromCSV("/study_data/" + chosenLang.toString() + '.csv', setLetterFamilies)
-    // }, [chosenLang])
+    //   axios.get("http://107.20.1.29:8000/api/language/")
+    //   .then((res) => {
+    //     console.log(res['data'])
+    //     setLangs(res['data'])
+    //   })
+    //   .catch((err) => {console.log(err)})
+    // }, [])
 
-    // use django api instead of above 
+
     useEffect(() => {
-      if(chosenLang !== ''){
-        axios.get("http://107.20.1.29:8000/api/"+chosenLang.toString()+"/")
-      .then((res) => {
-        setLetterFamilies(res['data'])
-      })
-      .catch((err) => {console.log(err)})
-      }
+      getDataFromCSV("/study_data/" + chosenLang.toString() + '.csv', setLetterFamilies)
     }, [chosenLang])
+
+    // // use django api instead of above 
+    // useEffect(() => {
+    //   if(chosenLang !== ''){
+    //     axios.get("http://107.20.1.29:8000/api/"+chosenLang.toString()+"/")
+    //   .then((res) => {
+    //     setLetterFamilies(res['data'])
+    //   })
+    //   .catch((err) => {console.log(err)})
+    //   }
+    // }, [chosenLang])
 
     
     useEffect(() => {
-        setFilteredLetterFamilies(filterTheArray(letterFamilies, "langFamily"))
+      //console.log(letterFamilies);
+        setFilteredLetterFamilies(filterTheArray(letterFamilies, "lang-family"))
     }, [letterFamilies])
 
 
@@ -83,8 +83,8 @@ function RestOfStudyPage(){
                       {'All'}
                     </MenuItem>
                   {filteredLetterFamilies ? (filteredLetterFamilies.map(lang => (
-                    <MenuItem value={lang['langFamily']} key={lang.code}>
-                      {lang['langFamily']}
+                    <MenuItem value={lang['lang-family']} key={lang.code}>
+                      {lang['lang-family']}
                     </MenuItem>))) : "LOADING!"}
                   </Select>
                   

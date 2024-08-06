@@ -23,7 +23,7 @@ export async function getDataFromCSV(filePath, variableFunc, letterFamily='all')
     }
 
 
-
+    
 }
 
 
@@ -32,7 +32,11 @@ export async function getDataFromCSV(filePath, variableFunc, letterFamily='all')
 export function filterTheArray(letterFamilies, keyInQuestion){
     let keysSeen = [];
     let storage = [];
-
+    console.log("letterFams")
+    console.log(letterFamilies)
+    console.log("keyinquestion")
+    console.log(keyInQuestion)
+    
     for(let i = 0; i < letterFamilies.length; i++){
         let letterFam = letterFamilies[i];
         
@@ -42,7 +46,9 @@ export function filterTheArray(letterFamilies, keyInQuestion){
         }
     }
 
+    console.log("keySeen")
     console.log(keysSeen);
+    console.log("storage")
     console.log(storage);
 
     return(storage);
