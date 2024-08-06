@@ -34,13 +34,13 @@ function App() {
         <Router basename={process.env.PUBLIC_URL}>
           <Routes>
               <Route path="/" element={<TopBarWithReg childToPut={restOfAppPage()} />} />
-              <Route path='/login' element={<Login />} />
-              <Route path='/register' element={<Register />} />
-              <Route path='/home' element={<Home />} />
-              <Route path='/quiz' element={<Quiz />} />
-              <Route path='/quiz/:mode/:lang/:letterFamily' element={<QuizCard />} />
-              <Route path='/study' element={<Study />} />
-              <Route path='/study/:lang/:letterFamily' element={<StudyCard />} />
+              <Route path='/lang_cards/login' element={<Login />} />
+              <Route path='/lang_cards/register' element={<Register />} />
+              <Route path='/lang_cards/home' element={<Home />} />
+              <Route path='/lang_cards/quiz' element={<Quiz />} />
+              <Route path='/lang_cards/quiz/:mode/:lang/:letterFamily' element={<QuizCard />} />
+              <Route path='/lang_cards/study' element={<Study />} />
+              <Route path='/lang_cards/study/:lang/:letterFamily' element={<StudyCard />} />
           </Routes>     
         </Router>
         

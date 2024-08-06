@@ -31,7 +31,7 @@ function RestOfQuizPage() {
 
     function handleSubmit(event) {
       event.preventDefault();
-      navigate("/quiz/"+ chosenMode.toString() + "/"+ chosenLang.toString()  + "/" + chosenLetterFamily.toString());  
+      navigate("/lang_cards/quiz/"+ chosenMode.toString() + "/"+ chosenLang.toString()  + "/" + chosenLetterFamily.toString());  
     }
 
     useEffect(() => {
