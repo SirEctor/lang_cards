@@ -25,7 +25,7 @@ function RestOfLoginPage(){
     function handleLogin(event){
         event.preventDefault();
         if(checkLogin(loginUsername, loginPassword)){
-            navigate("/home");
+            navigate("/lang_cards/home");
         }
     }
 

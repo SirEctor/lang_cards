@@ -20,7 +20,7 @@ function restOfAppPage() {
             <Typography variant="h4" component="div" sx={{flexGrow: 1,  margin: 2}}>Lang-Cards is a flashcard study/quiz system I made to help learn languages.</Typography>
             <Box>
               <Typography variant="p" component="div" sx={{flexGrow: 1,  margin: 2}}>Created By E. Teshome (2024)</Typography>
-              <Button variant="outlined"  href={"/home"} color="inherit" endIcon={ <HomeIcon /> } sx={{mr: 2}}>
+              <Button variant="outlined"  href={"/lang_cards/home"} color="inherit" endIcon={ <HomeIcon /> } sx={{mr: 2}}>
                     Home
                 </Button>
             </Box>
