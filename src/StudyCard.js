@@ -34,6 +34,10 @@ function RestOfStudyCard(){
     let hiddenClass = "card-hidden";
 
 
+    function resetStudy(){
+        window.location.reload();
+    }
+
     return(
     <>
     <Card sx={{ minWidth: 275 }} color="">
@@ -47,7 +51,7 @@ function RestOfStudyCard(){
     </Card>
     
     {finished && <Card sx={{ minWidth: 275 }}>
-            <Button color='secondary' variant="outlined" href={"/lang_cards/#/study/"+ lang.toString() + "/" + letterFamily.toString()} sx={{ mt: 20, mb: 20 }} style={{ textTransform: "none" }} endIcon={<RestartAltIcon />}>RESTART</Button>    
+            <Button onClick={resetStudy} color='secondary' variant="outlined" sx={{ mt: 20, mb: 20 }} style={{ textTransform: "none" }} endIcon={<RestartAltIcon />}>RESTART</Button>    
         </Card> 
     }
     </>

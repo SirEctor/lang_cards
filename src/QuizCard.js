@@ -33,6 +33,10 @@ function RestOfQuizCard(){
     let visibleClass = "card-visible";
     let hiddenClass = "card-hidden";
 
+    function resetQuiz(){
+        window.location.reload();
+    }
+
     return( <>
                 <Card sx={{ minWidth: 275 }} color="">
                     {randomizedArray ? randomizedArray.map((lang, index) => (
@@ -43,7 +47,7 @@ function RestOfQuizCard(){
                     )) : "LOADING"}
                 </Card>
                 {finished && <Card sx={{ minWidth: 275 }}>
-                    <Button component={Link} href={"localhost:3000/lang_cards/#/quiz/"+ mode.toString() + "/"+ lang.toString() + "/" + letterFamily.toString()} color="secondary" variant="outlined" sx={{ mt: 20, mb: 20 }} style={{ textTransform: "none" }} endIcon={<RestartAltIcon />}>
+                    <Button onClick={resetQuiz} color="secondary" variant="outlined" sx={{ mt: 20, mb: 20 }} style={{ textTransform: "none" }} endIcon={<RestartAltIcon />}>
                         RESTART
                     </Button>
                 </Card> 
