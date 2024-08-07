@@ -27,7 +27,7 @@ function TopBar({childToPut, rightSideButtons}) {
                 <ThemeProvider theme={theme}>
                     <AppBar color="violet">
                     <Toolbar>
-                        <Button color="inherit" href={"/"} sx={{ flexGrow: 1}}>Lang-Cards</Button>
+                        <Button color="inherit" href={"/lang_cards"} sx={{ flexGrow: 1}}>Lang-Cards</Button>
                         {rightSideButtons}
                     </Toolbar>
                     </AppBar>

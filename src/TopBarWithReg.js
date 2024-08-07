@@ -4,7 +4,7 @@ import HomeIcon from '@mui/icons-material/Home';
 
 function loginNRegisterButtons(){
     return( <>
-                <Button variant="outlined"  href={"/lang_cards/home"} color="inherit" endIcon={ <HomeIcon /> } sx={{mr: 2}}>
+                <Button variant="outlined"  href={"/lang_cards/#/home"} color="inherit" endIcon={ <HomeIcon /> } sx={{mr: 2}}>
                     Home
                 </Button>
             </>)

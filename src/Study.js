@@ -25,7 +25,7 @@ function RestOfStudyPage(){
 
     function handleSubmit(event) {
       event.preventDefault();
-      navigate("/lang_cards/study/"+ chosenLang.toString() + "/" + chosenLetterFamily.toString());  
+      navigate("/study/"+ chosenLang.toString() + "/" + chosenLetterFamily.toString());  
     }
 
     useEffect(() => {

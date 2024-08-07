@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import TopBarWithAvatar from './TopBarWithAvatar.js';
 import { Card, Button } from "@mui/material";
 import { useEffect, useState } from "react";
@@ -43,7 +43,9 @@ function RestOfQuizCard(){
                     )) : "LOADING"}
                 </Card>
                 {finished && <Card sx={{ minWidth: 275 }}>
-                    <Button color="secondary" variant="outlined" href={"/lang_cards/quiz/"+ mode.toString() + "/"+ lang.toString() + "/" + letterFamily.toString()} sx={{ mt: 20, mb: 20 }} style={{ textTransform: "none" }} endIcon={<RestartAltIcon />}>RESTART</Button>
+                    <Button component={Link} href={"localhost:3000/lang_cards/#/quiz/"+ mode.toString() + "/"+ lang.toString() + "/" + letterFamily.toString()} color="secondary" variant="outlined" sx={{ mt: 20, mb: 20 }} style={{ textTransform: "none" }} endIcon={<RestartAltIcon />}>
+                        RESTART
+                    </Button>
                 </Card> 
                 }
                 
