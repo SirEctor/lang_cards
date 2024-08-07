@@ -35,8 +35,8 @@ function RestOfQuizPage() {
     }
 
     useEffect(() => {
-      getDataFromCSV('/Language.csv', setLangs);
-      getDataFromCSV('/Mode.csv', setModes);
+      getDataFromCSV('/lang_cards/Language.csv', setLangs);
+      getDataFromCSV('/lang_cards/Mode.csv', setModes);
     }, [])
 
     //use django api instead of above
@@ -59,7 +59,7 @@ function RestOfQuizPage() {
 
 
     useEffect(() => {
-      getDataFromCSV("/study_data/" + chosenLang.toString() + '.csv', setLetterFamilies)
+      getDataFromCSV("/lang_cards/study_data/" + chosenLang.toString() + '.csv', setLetterFamilies)
     }, [chosenLang])
 
      // replace above useeffect with this one

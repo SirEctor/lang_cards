@@ -10,6 +10,8 @@ export async function getDataFromCSV(filePath, variableFunc, letterFamily='all')
     const results = Papa.parse(csv, {header: true});
     const rows = results.data;
     
+    console.log(filePath);
+
     if(letterFamily === 'all'){
         variableFunc(rows);
     }else{

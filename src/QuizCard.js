@@ -18,7 +18,7 @@ function RestOfQuizCard(){
     const[finished, setFinished] = useState(false);
     
     useEffect(() => {
-        let specificFilePath = "/study_data/" + lang.toString() + ".csv";
+        let specificFilePath = "/lang_cards/study_data/" + lang.toString() + ".csv";
         getDataFromCSV(specificFilePath, setLangArray, letterFamily);
     }, [lang, letterFamily])
 
@@ -43,7 +43,7 @@ function RestOfQuizCard(){
                     )) : "LOADING"}
                 </Card>
                 {finished && <Card sx={{ minWidth: 275 }}>
-                    <Button color="secondary" variant="outlined" href={"/quiz/"+ mode.toString() + "/"+ lang.toString() + "/" + letterFamily.toString()} sx={{ mt: 20, mb: 20 }} style={{ textTransform: "none" }} endIcon={<RestartAltIcon />}>RESTART</Button>
+                    <Button color="secondary" variant="outlined" href={"/lang_cards/quiz/"+ mode.toString() + "/"+ lang.toString() + "/" + letterFamily.toString()} sx={{ mt: 20, mb: 20 }} style={{ textTransform: "none" }} endIcon={<RestartAltIcon />}>RESTART</Button>
                 </Card> 
                 }
                 

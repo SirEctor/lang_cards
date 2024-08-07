@@ -31,9 +31,9 @@ function restOfAppPage() {
 
 function App() {
   return (
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router>
           <Routes>
-              <Route path="/" element={<TopBarWithReg childToPut={restOfAppPage()} />} />
+              <Route path="/lang_cards" element={<TopBarWithReg childToPut={restOfAppPage()} />} />
               <Route path='/lang_cards/login' element={<Login />} />
               <Route path='/lang_cards/register' element={<Register />} />
               <Route path='/lang_cards/home' element={<Home />} />

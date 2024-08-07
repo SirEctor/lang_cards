@@ -29,7 +29,7 @@ function RestOfStudyPage(){
     }
 
     useEffect(() => {
-      getDataFromCSV('/Language.csv', setLangs);
+      getDataFromCSV('/lang_cards/Language.csv', setLangs);
     }, [])
 
     // //use :8000 instead of lhost:8000
@@ -44,7 +44,7 @@ function RestOfStudyPage(){
 
 
     useEffect(() => {
-      getDataFromCSV("/study_data/" + chosenLang.toString() + '.csv', setLetterFamilies)
+      getDataFromCSV("/lang_cards/study_data/" + chosenLang.toString() + '.csv', setLetterFamilies)
     }, [chosenLang])
 
     // // use django api instead of above 

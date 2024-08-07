@@ -18,7 +18,7 @@ function RestOfStudyCard(){
 
     
     useEffect(() => {
-        let specificFilePath = "/study_data/" + lang.toString() + ".csv";
+        let specificFilePath = "/lang_cards/study_data/" + lang.toString() + ".csv";
         getDataFromCSV(specificFilePath, setLangArray, letterFamily);
     }, [lang, letterFamily]);
 
@@ -46,7 +46,7 @@ function RestOfStudyCard(){
     </Card>
             
     {finished && <Card sx={{ minWidth: 275 }}>
-        <Button color='secondary' variant="outlined" href={"/study/"+ lang.toString() + "/" + letterFamily.toString()} sx={{ mt: 20, mb: 20 }} style={{ textTransform: "none" }} endIcon={<RestartAltIcon />}>RESTART</Button>
+        <Button color='secondary' variant="outlined" href={"/lang_cards/study/"+ lang.toString() + "/" + letterFamily.toString()} sx={{ mt: 20, mb: 20 }} style={{ textTransform: "none" }} endIcon={<RestartAltIcon />}>RESTART</Button>
         </Card> 
     }
     </>
