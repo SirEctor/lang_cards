@@ -21,7 +21,9 @@ Lang-Cards is a flashcard study/quiz system I made to help learn the letters of 
   
 
 # Where can you visit it?
-http://lang-card-bucket.s3-website-us-east-1.amazonaws.com/
+http://lang-card-bucket.s3-website-us-east-1.amazonaws.com/ (DEPRECATED)
+
+UPDATE: Hosted at sirector.github.io/lang_cards
 
 
 ---------------------------------------------------------------------------------------------------------
