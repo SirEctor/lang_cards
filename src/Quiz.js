@@ -1,4 +1,4 @@
-import { FormControl, Select, Typography, Button } from '@mui/material';
+import { FormControl, Select, Typography, Button, Chip, Box } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
@@ -15,7 +15,8 @@ function RestOfQuizPage() {
     const [chosenLang, setChosenLang] = useState('');
     const [chosenMode, setChosenMode] = useState('');
     const [chosenLetterFamily, setChosenLetterFamily] = useState('');
-    
+    const [arrLetterFamily, setArrLetterFamily] = useState([]);
+
     function handleLang(event){
       setChosenLang(event.target.value);
     }
@@ -26,6 +27,7 @@ function RestOfQuizPage() {
 
     function handleLetterFamily(event){
       setChosenLetterFamily(event.target.value);
+      setArrLetterFamily(typeof event.target.value === 'string' ? event.target.value.split(',') : event.target.value,);
     }
 
 
@@ -98,7 +100,13 @@ function RestOfQuizPage() {
                   </Select>
 
                   <Typography variant="h5" sx={{flexGrow: 1}}>Letter Family</Typography>
-                  <Select variant="filled" color="secondary" id="letter-family-select" label="Letter Family" autoWidth onChange={handleLetterFamily}>
+                  <Select multiple variant="filled" color="secondary" id="letter-family-select" label="Letter Family" autoWidth onChange={handleLetterFamily} value={arrLetterFamily} renderValue={(selected) => (
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                      {selected.map((value) => (
+                        <Chip key={value} label={value} />
+                      ))}
+                    </Box>
+                  )}>
                   <MenuItem value={'all'} key={'study-all'}>
                       {'All'}
                     </MenuItem>

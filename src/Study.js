@@ -1,4 +1,4 @@
-import { FormControl, Select, Typography, Button } from '@mui/material';
+import { FormControl, Select, Typography, Button, Chip, Box } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
@@ -14,13 +14,15 @@ function RestOfStudyPage(){
     
     const [chosenLang, setChosenLang] = useState('');
     const [chosenLetterFamily, setChosenLetterFamily] = useState('');
-    
+    const [arrLetterFamily, setArrLetterFamily] = useState([]);
+
     function handleLang(event){
       setChosenLang(event.target.value);
     }
 
     function handleLetterFamily(event){
         setChosenLetterFamily(event.target.value);
+        setArrLetterFamily(typeof event.target.value === 'string' ? event.target.value.split(',') : event.target.value,);
     }
 
     function handleSubmit(event) {
@@ -78,14 +80,21 @@ function RestOfStudyPage(){
                   </Select>
 
                   <Typography variant="h5" sx={{flexGrow: 1}}>Letter Family</Typography>
-                  <Select variant="filled" color="secondary" id="letter-family-select" label="Letter Family" autoWidth onChange={handleLetterFamily}>
-                  <MenuItem value={'all'} key={'study-all'}>
-                      {'All'}
-                    </MenuItem>
-                  {filteredLetterFamilies ? (filteredLetterFamilies.map(lang => (
-                    <MenuItem value={lang['lang-family']} key={lang.code}>
-                      {lang['lang-family']}
-                    </MenuItem>))) : "LOADING!"}
+                  <Select multiple variant="filled" color="secondary" id="letter-family-select" label="Letter Family" autoWidth onChange={handleLetterFamily} value={arrLetterFamily} renderValue={(selected) => (
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                      {selected.map((value) => (
+                        <Chip key={value} label={value} />
+                      ))}
+                    </Box>
+                  )}>
+                      <MenuItem value={'all'} key={'study-all'}>
+                          {'All'}
+                        </MenuItem>
+                      {filteredLetterFamilies ? (filteredLetterFamilies.map(lang => (
+                        <MenuItem value={lang['lang-family']} key={lang.code}>
+                          {lang['lang-family']}
+                        </MenuItem>
+                        ))) : "LOADING!"}
                   </Select>
                   
                   <Button variant="outlined" color="inherit" sx={{mt: 2}} type="submit">Submit</Button>

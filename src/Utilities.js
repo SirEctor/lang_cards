@@ -10,22 +10,37 @@ export async function getDataFromCSV(filePath, variableFunc, letterFamily='all')
     const results = Papa.parse(csv, {header: true});
     const rows = results.data;
     
-    console.log(filePath);
-
-    if(letterFamily === 'all'){
-        variableFunc(rows);
-    }else{
-        let chosenRows = [];
-        for(let i = 0; i < rows.length; i++){
-            if(rows[i]['lang-family'] === letterFamily){
-                chosenRows.push(rows[i])
+    console.log(letterFamily);
+    if(letterFamily.split("").includes(",")){
+        let multipleLetters = letterFamily.split(",");
+        if(multipleLetters.includes("all")){
+            variableFunc(rows);
+        }else{
+            let chosenRows = [];
+            for(let j = 0; j < multipleLetters.length; j++){
+                let letter = multipleLetters[j];
+                console.log(letter);
+                for(let i = 0; i < rows.length; i++){
+                    if(rows[i]['lang-family'] === letter){
+                        chosenRows.push(rows[i])
+                    }
+                }   
             }
+            variableFunc(chosenRows);
         }
-        variableFunc(chosenRows);
+    }else{
+        if(letterFamily === 'all'){
+            variableFunc(rows);
+        }else{
+            let chosenRows = [];
+            for(let i = 0; i < rows.length; i++){
+                if(rows[i]['lang-family'] === letterFamily){
+                    chosenRows.push(rows[i])
+                }
+            }
+            variableFunc(chosenRows);
+        }
     }
-
-
-    
 }
 
 
