@@ -7,6 +7,7 @@ function ChangeableCard({langA, visibility, setCurrentCard, currentCard, mode, n
     const [sound, setSound] = useState('');
     const [correctMatch, setCorrectMatch] = useState(undefined);
     const [percent, setPercent] = useState(0);
+    const [oneTime, setOneTime] = useState(0);
     
 
     useEffect(() => {
@@ -23,14 +24,25 @@ function ChangeableCard({langA, visibility, setCurrentCard, currentCard, mode, n
             //eng to other lang
             setCorrectMatch(sound === langA['other-lang']);
             if(sound === langA['other-lang']){
-                setNumCorrect(numCorrect => numCorrect + 1);
+                if(oneTime < 1){
+                    setOneTime(oneTime => oneTime + 1);
+                    setNumCorrect(numCorrect => numCorrect + 1);
+                }
+            }
+
+            if(sound === langA['other-lang']){
+                
+                
             }
         }
         else{
             //other lang to eng
             setCorrectMatch(sound === langA['english']);
             if(sound === langA['english']){
-                setNumCorrect(numCorrect => numCorrect + 1);
+                if(oneTime < 1){
+                    setOneTime(oneTime => oneTime + 1);
+                    setNumCorrect(numCorrect => numCorrect + 1);
+                }
             }
         }
     }

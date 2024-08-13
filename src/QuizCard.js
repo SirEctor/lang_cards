@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import TopBarWithAvatar from './TopBarWithAvatar.js';
 import { Card, Button } from "@mui/material";
 import { useEffect, useState } from "react";
@@ -8,7 +8,6 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
 function RestOfQuizCard(){
     let { mode, lang, letterFamily } = useParams();
-    console.log(mode);
 
     const [langArray, setLangArray] = useState([]);
     const [randomizedArray, setRandomizedArray] = useState([])
